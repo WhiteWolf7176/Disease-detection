@@ -16,7 +16,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # --- Step 1: Load BOTH models ---
 # (Make sure to rename your original model to this)
 arecanut_model = keras.models.load_model("IntelImageClass_ResNet20v1_model.006.h5") 
-coconut_model = keras.models.load_model("my_models.h5")
+coconut_model = keras.models.load_model("IntelImageClass(c)_ResNet20v1_model.008.h5")
 
 # --- Step 2: Define BOTH class name lists ---
 arecanut_class_names = [
