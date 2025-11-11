@@ -60,7 +60,7 @@ export const CARE_DATA = [
         id: 'coco_1',
         type: 'coconut',
         name: getDisplayName('CCI_Caterpillars'),
-        img: 'https://placehold.co/300x200/F1F8E9/2E7D32?text=Caterpillar', // Use your coconut images
+        img: '/images/catepillar.jpg', // Use your coconut images
         about: 'The coconut black-headed caterpillar is a serious pest that feeds on the green tissues of the leaves.',
         treatment: 'Release parasitic wasps (e.g., Goniozus nephantidis) which are natural enemies. Remove and burn severely infested leaves.'
     },
@@ -68,7 +68,7 @@ export const CARE_DATA = [
         id: 'coco_2',
         type: 'coconut',
         name: getDisplayName('WCLWD_Yellowing'),
-        img: 'https://placehold.co/300x200/F1F8E9/2E7D32?text=Wilt+(Yellow)',
+        img: '/images/yellowing.jpeg',
         about: 'Root (wilt) disease is a complex, debilitating disease. It causes yellowing, drooping, and a reduction in nut yield.',
         treatment: 'There is no cure. Focus on integrated management: apply balanced nutrition, manage soil health, and plant resistant varieties.'
     },
@@ -76,7 +76,7 @@ export const CARE_DATA = [
         id: 'coco_3',
         type: 'coconut',
         name: getDisplayName('WCLWD_Flaccidity'),
-        img: 'https://placehold.co/300x200/F1F8E9/2E7D32?text=Wilt+(Drooping)',
+        img: '/images/drooping.jpeg',
         about: 'A key symptom of Root (wilt) disease where leaves lose turgidity, droop, and bend, starting from the outer whorls.',
         treatment: 'Manage soil moisture and nutrients. Remove severely affected palms that are beyond recovery.'
     },

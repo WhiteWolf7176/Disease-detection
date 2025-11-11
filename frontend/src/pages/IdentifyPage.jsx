@@ -9,10 +9,10 @@ const PLANT_EXAMPLES = {
   ],
   coconut: [
     // TODO: Add your coconut example images to /public/images/
-    { name: "Caterpillar Damage", img: "https://placehold.co/150x150/F1F8E9/2E7D32?text=Caterpillar" },
-    { name: "Wilt (Yellowing)", img: "https://placehold.co/150x150/F1F8E9/2E7D32?text=Wilt" },
-    { name: "Healthy Coconut", img: "https://placehold.co/150x150/F1F8E9/2E7D32?text=Healthy" },
-    { name: "Bud Rot", img: "https://placehold.co/150x150/F1F8E9/2E7D32?text=Bud+Rot" },
+    { name: "Caterpillar Infestation", img: "/images/catepillar.jpg" },
+    { name: "Wilt (Yellowing)", img: "/images/yellowing.jpeg" },
+    { name: "Healthy Leaf", img: "/images/Healthy_leaf.jpg" },
+    { name: "Wilt (Drying)", img: "/images/drying.jpeg" },
   ]
 };
 
@@ -82,6 +82,29 @@ function IdentifyPage() {
           <option>Hindi</option>
         </select>
       </div>
+      {/* --- MODIFICATION 3: NEW Example Gallery --- */}
+          {/* We add this *after* the two-column grid */}
+          <div className="mt-16">
+            <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+              Common Examples: <span className="text-green-700 font-bold capitalize">{cropType}</span>
+            </h2>
+            {/* This div handles horizontal scrolling on all screen sizes */}
+            <div className="flex overflow-x-auto gap-4 pb-4">
+              {/* We dynamically get the correct list of examples */}
+              {PLANT_EXAMPLES[cropType].map((example) => (
+                <div key={example.name} className="flex-shrink-0 w-48 bg-white rounded-lg shadow-md">
+                  <img
+                    src={example.img}
+                    alt={example.name}
+                    className="w-full h-32 object-cover rounded-t-lg"
+                  />
+                  <div className="p-3 text-center">
+                    <p className="font-semibold text-sm text-gray-800">{example.name}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
       {/* --- MODIFICATION 1: Plant Type Selector --- */}
       {/* This layout is cleaner and replaces the one in your screenshot.
@@ -114,6 +137,7 @@ function IdentifyPage() {
           </button>
         </div>
       </div>
+      
 
       {/* --- NEW: Two-Column Layout --- */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -221,29 +245,6 @@ function IdentifyPage() {
           
         </div>
       </div>
-      {/* --- MODIFICATION 3: NEW Example Gallery --- */}
-          {/* We add this *after* the two-column grid */}
-          <div className="mt-16">
-            <h2 className="text-2xl font-semibold text-gray-700 mb-4">
-              Common Examples: <span className="text-green-700 font-bold capitalize">{cropType}</span>
-            </h2>
-            {/* This div handles horizontal scrolling on all screen sizes */}
-            <div className="flex overflow-x-auto gap-4 pb-4">
-              {/* We dynamically get the correct list of examples */}
-              {PLANT_EXAMPLES[cropType].map((example) => (
-                <div key={example.name} className="flex-shrink-0 w-48 bg-white rounded-lg shadow-md">
-                  <img
-                    src={example.img}
-                    alt={example.name}
-                    className="w-full h-32 object-cover rounded-t-lg"
-                  />
-                  <div className="p-3 text-center">
-                    <p className="font-semibold text-sm text-gray-800">{example.name}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
     </div>
   );
