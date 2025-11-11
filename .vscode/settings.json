@@ -1,0 +1,11 @@
+{
+  // 1. This is the MASTER command.
+  // It tells VS Code the EXACT Python to use for this project.
+  "python.defaultInterpreterPath": ".\\venv\\Scripts\\python.exe",
+
+  // 2. This stops VS Code from asking to create new environments.
+  "python.createEnvironment.trigger": "off",
+
+  // 3. This ensures the terminal automatically uses the interpreter above.
+  "python.terminal.activateEnvInCurrentTerminal": true
+}
