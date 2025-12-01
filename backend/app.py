@@ -73,6 +73,12 @@ def predict():
     # Normalize and add batch dimension
     img_array = np.expand_dims(img_bgr / 255.0, axis=0)
     
+    hsv_img = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2HSV)
+    
+    green_mask = cv2.inRange(hsv_img, (30, 30, 30), (90, 255, 255))
+    brown_mask = cv2.inRange(hsv_img, (10, 50, 50), (30, 255, 255))
+    plant_ratio = (np.sum(green_mask) + np.sum(brown_mask)) / (hsv_img.shape[0] * hsv_img.shape[1] * 255)
+    
     # --- Step 6: Predict (The rest of the code is the same!) ---
     prediction = model.predict(img_array)[0]
 
@@ -83,7 +89,11 @@ def predict():
         "disease": result_label,
         "scores": {class_names[i]: float(prediction[i]) for i in range(len(class_names))}
     }
-
+    confidence_score = np.max(prediction)
+    
+    if plant_ratio < 0.10: # If less than 10% of the image is plant-colored
+         return jsonify({"error": "Please upload a clear image of a plant."}), 400
+    #
     return jsonify(response)
 
 if __name__ == "__main__":

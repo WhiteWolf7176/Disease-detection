@@ -57,6 +57,7 @@ function IdentifyPage() {
       if (!res.ok) {
         // Handle server errors (e.g., 500)
         throw new Error(`Server error: ${res.statusText}`);
+        throw new Error(data.error || "Prediction failed");
       }
 
       const data = await res.json();
@@ -73,15 +74,6 @@ function IdentifyPage() {
   return (
     <div className="max-w-7xl mx-auto py-12 px-6">
 
-      {/* --- Language Selector --- */}
-      <div className="text-right mb-6">
-        <select className="border rounded p-2 shadow-sm">
-          <option>Select Language</option>
-          <option>English</option>
-          <option>Kannada</option>
-          <option>Hindi</option>
-        </select>
-      </div>
       {/* --- MODIFICATION 3: NEW Example Gallery --- */}
           {/* We add this *after* the two-column grid */}
           <div className="mt-16">
