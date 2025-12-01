@@ -54,6 +54,14 @@ export const CARE_DATA = [
         about: 'Also known as fruit rot, this fungal disease causes rotting and dropping of immature nuts during the monsoon.',
         treatment: 'Spray 1% Bordeaux mixture on bunches just before the onset of the monsoon and repeat 2-3 times.'
     },
+    {
+        id: 'areca_4', 
+        type: 'arecanut',
+        name: getDisplayName('bud borer'),
+        img: '/images/bud borer.jpg',
+        about: 'A serious pest where larvae bore into the tender bud, causing yellowing and drying of the central spindle.',
+        treatment: 'Clean the crown and apply granular insecticides like Phorate or Carbofuran. Use pheromone traps to catch moths.'
+    },
 
     // --- COCONUT DISEASES ---
     {
@@ -80,5 +88,13 @@ export const CARE_DATA = [
         about: 'A key symptom of Root (wilt) disease where leaves lose turgidity, droop, and bend, starting from the outer whorls.',
         treatment: 'Manage soil moisture and nutrients. Remove severely affected palms that are beyond recovery.'
     },
+    {
+        id: 'coco_4', 
+        type: 'coconut',
+        name: getDisplayName('WCLWD_DryingOfLeaflets'),
+        img: '/images/dry leaf.jpeg',
+        about: 'Leaflets dry up from the tip downwards, giving a scorched appearance. It is a characteristic symptom of advanced Root (Wilt) Disease.',
+        treatment: 'Adopt integrated management practices including balanced fertilization, growing green manure crops, and removing severely infected palms.'
+    }
     // ... Add all your other diseases here
 ];

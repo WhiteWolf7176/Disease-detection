@@ -65,14 +65,14 @@ function IdentifyPage() {
 
     } catch (err) {
       console.error(err);
-      setError("Prediction failed. Please try again.");
+      setError("Prediction failed. Please upload a clear image of a plant.");
     } finally {
       setLoading(false); // Stop loading
     }
   };
 
   return (
-    <div className="max-w-7xl mx-auto py-12 px-6">
+    <div className="w-full max-w-[90%] mx-auto py-16 px-4">
 
       {/* --- MODIFICATION 3: NEW Example Gallery --- */}
           {/* We add this *after* the two-column grid */}
@@ -184,9 +184,23 @@ function IdentifyPage() {
 
           {/* NEW: Error Message */}
           {error && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-6">
-              <strong className="font-bold">Error: </strong>
-              <span className="block sm:inline">{error}</span>
+            <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-6 rounded-r shadow-sm animate-pulse-fast">
+              <div className="flex">
+                <div className="flex-shrink-0">
+                  {/* Warning Icon */}
+                  <svg className="h-6 w-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                </div>
+                <div className="ml-3">
+                  <h3 className="text-sm font-bold text-red-800">
+                    Identification Failed
+                  </h3>
+                  <div className="mt-1 text-sm text-red-700">
+                    <p>{error}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
 

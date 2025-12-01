@@ -91,7 +91,7 @@ def predict():
     }
     confidence_score = np.max(prediction)
     
-    if plant_ratio < 0.10: # If less than 10% of the image is plant-colored
+    if plant_ratio < 0.05: # If less than 10% of the image is plant-colored
          return jsonify({"error": "Please upload a clear image of a plant."}), 400
     #
     return jsonify(response)

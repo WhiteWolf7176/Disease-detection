@@ -12,59 +12,50 @@ function CarePage() {
   });
 
   return (
-    <div className="max-w-7xl mx-auto py-12 px-6">
-      <h1 className="text-4xl font-bold text-center text-green-800 mb-8">
+    <div className="w-full max-w-[90%] mx-auto py-16 px-4">
+      
+      <h1 className="text-5xl md:text-6xl font-extrabold text-center text-green-800 mb-12">
         Disease Care Guide
       </h1>
       
       {/* --- Filter Buttons --- */}
-      <div className="flex justify-center gap-4 mb-10">
-        <button
-          onClick={() => setFilter('all')}
-          className={`px-6 py-2 rounded-full font-semibold transition
-            ${filter === 'all' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-700'}
-          `}
-        >
-          All
-        </button>
-        <button
-          onClick={() => setFilter('arecanut')}
-          className={`px-6 py-2 rounded-full font-semibold transition
-            ${filter === 'arecanut' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-700'}
-          `}
-        >
-          Arecanut
-        </button>
-        <button
-          onClick={() => setFilter('coconut')}
-          className={`px-6 py-2 rounded-full font-semibold transition
-            ${filter === 'coconut' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-700'}
-          `}
-        >
-          Coconut
-        </button>
+      <div className="flex flex-wrap justify-center gap-6 mb-16">
+        {['all', 'arecanut', 'coconut'].map((type) => (
+          <button
+            key={type}
+            onClick={() => setFilter(type)}
+            className={`px-8 py-3 rounded-full text-xl font-bold capitalize transition transform hover:scale-105
+              ${filter === type 
+                ? 'bg-green-700 text-white shadow-lg' 
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}
+            `}
+          >
+            {type}
+          </button>
+        ))}
       </div>
 
       {/* --- Disease Card Grid --- */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10">
         {filteredData.map(item => (
-          <div key={item.id} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+          <div key={item.id} className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col hover:shadow-2xl transition duration-300 border border-gray-100">
+            {/* Taller images (h-64) */}
             <img 
               src={item.img} 
               alt={item.name} 
-              className="w-full h-48 object-cover"
+              className="w-full h-64 object-cover"
             />
-            <div className="p-6 flex flex-col flex-grow">
-              <h3 className="text-2xl font-bold text-green-700 mb-3">{item.name}</h3>
+            <div className="p-8 flex flex-col flex-grow">
+              <h3 className="text-3xl font-bold text-green-800 mb-4">{item.name}</h3>
               
-              <div className="mb-4">
-                <h4 className="font-semibold text-gray-800 mb-1">About this Disease:</h4>
-                <p className="text-gray-600 text-sm">{item.about}</p>
+              <div className="mb-6">
+                <h4 className="text-xl font-bold text-gray-900 mb-2">About:</h4>
+                <p className="text-lg text-gray-600 leading-relaxed">{item.about}</p>
               </div>
               
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-1">Prevention & Treatment:</h4>
-                <p className="text-gray-600 text-sm">{item.treatment}</p>
+              <div className="mt-auto">
+                <h4 className="text-xl font-bold text-gray-900 mb-2">Treatment:</h4>
+                <p className="text-lg text-gray-600 leading-relaxed">{item.treatment}</p>
               </div>
             </div>
           </div>
