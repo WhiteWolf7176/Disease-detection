@@ -5,10 +5,10 @@ import math
 
 # ---CONFIGURATION---
 #1. Set the path to the unorganized dataset folder
-SOURCE_DIR = "archive"
+SOURCE_DIR = "valid"
 
 #2. Set the path for the new, organised dataset
-OUTPUT_DIR = "Coconut_dataset"
+OUTPUT_DIR = "valid_images"
 
 #3. Set the split ratio (0.2 = 20% for testing)
 TEST_SPLIT_RATIO = 0.2
